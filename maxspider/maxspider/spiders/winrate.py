@@ -1,4 +1,6 @@
 import scrapy
+import redis
+
 
 class WinrateSpider(scrapy.Spider):
     name = 'winrate'
@@ -7,7 +9,7 @@ class WinrateSpider(scrapy.Spider):
         'http://dotamax.com/hero/rate/?time=v684&server=cn&skill=n'        
     ]
     herodict = {}
-    herolist = []
+
 
     def parse(self, response):
         heroname_list = (name for name in response.css(".hero-name-list").re(r'(\w+)<'))
@@ -19,6 +21,13 @@ class WinrateSpider(scrapy.Spider):
             except:
                 break
 
-        self.herolist = sorted(self.herodict.iteritems(), key=lambda d:d[1], reverse = True)
-        for key, value in self.herolist:
-            print key, value
+        for key in self.herodict:
+            print key,self.herodict[key]
+
+        self.savedb()
+
+    def savedb(self):
+        db = redis.StrictRedis(host='localhost', port='6379', db=0)
+        for key in self.herodict:
+            db.set(key,self.herodict[key])
+
