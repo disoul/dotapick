@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html ng-app='dotapick'>
 <head>
-	<scripti src="./bower_components/angularjs/angular.min.js"></script>
-	<link rel="stylesheet" href="./public/css/index.css">
 	<meta charset="UTF-8">
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+	<link rel="stylesheet" href="./public/css/index.css">
 	<title>Dota Pick</title>
 </head>
-<body>
-	<div class="header">
-		<div class="logo">DotaPick</div>
+<body ng-controller='ListController'>
+	<md-toolbar class="header" layout='row' layout-align='left'>
+		<md-button hide-gt-md ng-click="openList()" aria-label="Show List">
+			<md-icon md-svg-icon="./public/assets/svg/menu.svg"></md-icon>
+		</md-button>
+		<div class="logo" >DotaPick</div>
+	</md-toolbar>
+
+	<div flex layout='row'>
+		<md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left'>
+			<md-list layout='column'>
+				<md-item>
+					<md-button>
+						<md-icon md-svg-src="./public/assets/svg/avatar-1.svg" class='avatar'></md-icon>
+						Codefalling
+					</md-button>
+				</md-item>
+				<md-item>
+					<md-button>
+						<md-icon md-svg-src="./public/assets/svg/avatar-4.svg" class='avatar'></md-icon>
+						Xen0n
+					</md-button>
+				</md-item>
+			</md-list>
+		</md-sidenav>
+		<md-content flex id="content" layout-margin>
+			<md-icon md-svg-src='./public/assets/svg/avatar-4.svg' class='avatar'></md-icon>
+			<h2>Xen0n</h2>
+			<p>PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...
+			   PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...
+               PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...
+			</p>
+		</md-content>
 	</div>
+
+	<!-- AngularJS  -->
+	<script src="./bower_components/angularjs/angular.min.js"></script>
+	<script src="./bower_components/angular-material/angular-material.min.js"></script>
+	<script src="./bower_components/angular-aria/angular-aria.js"></script>
+	<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="./public/js/app.js"></script>
+	
 </body>
 </html>
