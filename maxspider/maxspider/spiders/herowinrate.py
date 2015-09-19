@@ -19,5 +19,16 @@ class HeroWinrateSpider(scrapy.Spider):
         opponent_names = response.css('.hero-name-list').re(r'list\">([a-zA-Z \-\']+)</span>')
         name = response.css('.hero-title').re(r'\">\n *([a-zA-Z \-\']+?) *</span>')[0]
         db = redis.StrictRedis(db=1)
+        self.save_winrate(matchup, opponent_names, name)
+
+
+    def save_winrate(self, matchup, opponent_names, name):
+        db = redis.StrictRedis(db=1)
         for index,item in enumerate(matchup):
-            db.set('dphw_'+name+'_'+opponent_names[index], item);
+            key = 'dphw_'+opponent_names[index]+'_'+name
+            if db.get(key) != None:
+                # if alreday have B_A key, update B_A key to average value
+                # else create A_B key
+                db.set(key, (float(db.get(key))-float(item)) / 2)
+            else:
+                db.set('dphw_'+name+'_'+opponent_names[index], item)

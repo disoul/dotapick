@@ -1,0 +1,21 @@
+{
+  "name": "dotapick",
+  "version": "1.0.0",
+  "description": "",
+  "main": " ",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/disoul/dotapick.git"
+  },
+  "author": "DiSoul",
+  "bugs": {
+    "url": "https://github.com/disoul/dotapick/issues"
+  },
+  "homepage": "https://github.com/disoul/dotapick#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-compass": "^2.1.0",
+    "path": "^0.12.7"
+  }
+}
