@@ -8,16 +8,15 @@
 	<link rel="stylesheet" href="./public/css/index.css">
 	<title>Dota Pick</title>
 </head>
-<body>
-	<md-toolbar class="header" layout='row' layout-align='left' ng-controller='ListController'>
+<body layout='column'>
+	<md-toolbar flex='5' class="header" layout='row' layout-align='left' ng-controller='ListController'>
 		<md-button hide-gt-md ng-click="openList()" aria-label="Show List">
 			<md-icon md-svg-icon="./public/assets/svg/menu.svg"></md-icon>
 		</md-button>
 		<div class="logo" >DotaPick</div>
 	</md-toolbar>
 
-	<div flex layout='row'>
-		<md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left'>
+		<md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left' style='position:absolute;'>
 			<md-list layout='column' ng-controller='OptionsSelectController'>
 				<md-input-container ng-repeat='option in options'>
 				<label>{{option.name}}</label>
@@ -29,15 +28,17 @@
 				</md-input-container>
 			</md-list>
 		</md-sidenav>
-		<md-content flex id="content" layout-margin>
-			<md-icon md-svg-src='./public/assets/svg/avatar-4.svg' class='avatar'></md-icon>
-			<h2>Xen0n</h2>
-			<p>PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...
-			   PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...
-               PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...PRPRPRPRPR...
-			</p>
+		<md-content flex='95' layout-margin layout='column'>
+			<div flex='60' class="heros" layout='column'>
+				<div class='text enemy-text'>Enemy Heros</div>
+				<div flex='20' class="enemy" layout='row'>
+					<div class="enemy-hero" flex='20'></div>		
+				</div>
+				<div class='text firendly-text'>Firendly Heros</div>
+				<div flex='20' class="friend"></div>
+			</div>
+			<div class="recommend"></div>
 		</md-content>
-	</div>
 
 	<!-- AngularJS  -->
 	<script src="./bower_components/angularjs/angular.min.js"></script>

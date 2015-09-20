@@ -98,3 +98,5 @@ node_modules
 .sass-cache/
 *.css.map
 
+# Bower
+bower_components/
