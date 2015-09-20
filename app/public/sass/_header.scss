@@ -1,0 +1,8 @@
+.header {
+	.logo {
+		font-size: 30px;
+	}
+	@media(min-width: 960px){
+		justify-content: center;
+	}
+}

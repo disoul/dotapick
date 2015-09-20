@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html ng-app='dotapick'>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/>
-	<link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-	<link rel="stylesheet" href="./public/css/index.css">
-	<title>Dota Pick</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link rel="stylesheet" href="./public/css/index.css">
+    <title>Dota Pick</title>
 </head>
 <body layout='column'>
-	<md-toolbar flex='5' class="header" layout='row' layout-align='left' ng-controller='ListController'>
-		<md-button hide-gt-md ng-click="openList()" aria-label="Show List">
-			<md-icon md-svg-icon="./public/assets/svg/menu.svg"></md-icon>
-		</md-button>
-		<div class="logo" >DotaPick</div>
-	</md-toolbar>
+    <md-toolbar flex='5' class="header" layout='row' layout-align='start center' ng-controller='ListController'>
+        <md-button hide-gt-md ng-click="openList()" aria-label="Show List">
+            <md-icon md-svg-icon="./public/assets/svg/menu.svg"></md-icon>
+        </md-button>
+        <div class="logo" >DotaPick</div>
+    </md-toolbar>
 
-		<md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left' style='position:absolute;'>
-			<md-list layout='column' ng-controller='OptionsSelectController'>
-				<md-input-container ng-repeat='option in options'>
-				<label>{{option.name}}</label>
-				<md-select ng-model = 'option.userStates'>
-				<md-option ng-repeat='state in option.states' value='{{state}}'>
-				{{state}}
-				</md-option>
-				</md-select>
-				</md-input-container>
-			</md-list>
-		</md-sidenav>
-		<md-content flex='95' layout-margin layout='column'>
-			<div flex='60' class="heros" layout='column'>
-				<div class='text enemy-text'>Enemy Heros</div>
-				<div flex='20' class="enemy" layout='row'>
-					<div class="enemy-hero" flex='20'></div>		
-				</div>
-				<div class='text firendly-text'>Firendly Heros</div>
-				<div flex='20' class="friend"></div>
-			</div>
-			<div class="recommend"></div>
-		</md-content>
+        <md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left' style='position:absolute;'>
+            <md-list layout='column' ng-controller='OptionsSelectController'>
+                <md-input-container ng-repeat='option in options'>
+                <label>{{option.name}}</label>
+                <md-select ng-model = 'option.userStates'>
+                <md-option ng-repeat='state in option.states' value='{{state}}'>
+                {{state}}
+                </md-option>
+                </md-select>
+                </md-input-container>
+            </md-list>
+        </md-sidenav>
+        <md-content flex='95' layout-margin layout='column'>
+            <div flex='60' class="heros" layout='column' ng-controller='HeroViewController'>
+                <div class='text enemy-text'>Opponent Heroes</div>
+                <div flex='20' class="enemy" layout='row'>
+					<div class="enemy-hero" flex='20' layout-align='center center' ng-repeat='enemy in enemys'>
+						<img ng-src="{{enemy.imgSrc}}" alt="">
+						<div class="name">{{enemy.name}}</div>
+					</div>
+                </div>
+                <div class='text firendly-text'>Teanmates Heroes</div>
+                <div flex='20' class="friend"></div>
+            </div>
+            <div class="recommend"></div>
+        </md-content>
 
-	<!-- AngularJS  -->
-	<script src="./bower_components/angularjs/angular.min.js"></script>
-	<script src="./bower_components/angular-material/angular-material.min.js"></script>
-	<script src="./bower_components/angular-aria/angular-aria.js"></script>
-	<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
-	<script src="./public/js/app.js"></script>
-	<script src="./public/js/LeftlistController.js"></script>
-	<script src="./public/js/OptionSelectController.js"></script>
-	
+    <!-- AngularJS  -->
+    <script src="./bower_components/angularjs/angular.min.js"></script>
+    <script src="./bower_components/angular-material/angular-material.min.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="./public/js/app.js"></script>
+    <script src="./public/js/LeftlistController.js"></script>
+    <script src="./public/js/OptionSelectController.js"></script>
+    <script src="./public/js/HeroViewController.js"></script>
+    
 </body>
 </html>
