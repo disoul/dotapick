@@ -8,8 +8,8 @@
 	<link rel="stylesheet" href="./public/css/index.css">
 	<title>Dota Pick</title>
 </head>
-<body ng-controller='ListController'>
-	<md-toolbar class="header" layout='row' layout-align='left'>
+<body>
+	<md-toolbar class="header" layout='row' layout-align='left' ng-controller='ListController'>
 		<md-button hide-gt-md ng-click="openList()" aria-label="Show List">
 			<md-icon md-svg-icon="./public/assets/svg/menu.svg"></md-icon>
 		</md-button>
@@ -18,19 +18,15 @@
 
 	<div flex layout='row'>
 		<md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left'>
-			<md-list layout='column'>
-				<md-item>
-					<md-button>
-						<md-icon md-svg-src="./public/assets/svg/avatar-1.svg" class='avatar'></md-icon>
-						Codefalling
-					</md-button>
-				</md-item>
-				<md-item>
-					<md-button>
-						<md-icon md-svg-src="./public/assets/svg/avatar-4.svg" class='avatar'></md-icon>
-						Xen0n
-					</md-button>
-				</md-item>
+			<md-list layout='column' ng-controller='OptionsSelectController'>
+				<md-input-container ng-repeat='option in options'>
+				<label>{{option.name}}</label>
+				<md-select ng-model = 'option.userStates'>
+				<md-option ng-repeat='state in option.states' value='{{state}}'>
+				{{state}}
+				</md-option>
+				</md-select>
+				</md-input-container>
 			</md-list>
 		</md-sidenav>
 		<md-content flex id="content" layout-margin>
@@ -49,6 +45,8 @@
 	<script src="./bower_components/angular-aria/angular-aria.js"></script>
 	<script src="./bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="./public/js/app.js"></script>
+	<script src="./public/js/LeftlistController.js"></script>
+	<script src="./public/js/OptionSelectController.js"></script>
 	
 </body>
 </html>
