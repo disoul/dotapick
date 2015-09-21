@@ -1,0 +1,25 @@
+md-dialog {
+    height: 90%;
+    width: 90%;
+    #close-icon {
+        display: inline-block;
+    }
+    #toolbar {
+        padding: 0 5px 0 5px;
+        h3 {
+            margin: 5px 0 5px 0;
+        }
+    }
+}
+
+#dialog-heros {
+    md-pagination-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    md-tabs-wrapper {
+        background-color: #2C80D2;
+    }
+}
+

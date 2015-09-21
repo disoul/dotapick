@@ -1,0 +1,21 @@
+<md-dialog aria-label='Select Hero'>
+    <md-toolbar layout='row' layout-align='space-between center' id='toolbar'>
+        <h3>Select Hero</h3>
+        <md-button class='md-icon-button' ng-click='cancel()' id='close-icon'>
+            <md-icon md-svg-src='./public/assets/svg/share.svg' aria-label='close dialog'></md-icon>
+        </md-button>
+    </md-toolbar>
+    <md-content ng-controller='SelectHeroController'>
+        <md-tabs id='dialog-heros' class='md-accent' md-selected='selectedIndex' md-align-tabs='top'>
+            <md-tab id='str'>
+                <md-tab-label><span><img src="./public/image/overviewicon_str.png" alt=""></span></md-tab-label>
+            </md-tab>
+            <md-tab id='agi'>
+            <md-tab-label><span><img src="./public/image/overviewicon_agi.png" alt=""></span></md-tab-label>
+            </md-tab>
+            <md-tab id='int'>
+            <md-tab-label><span><img src="./public/image/overviewicon_int.png" alt=""></span></md-tab-label>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</md-dialog>

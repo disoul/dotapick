@@ -32,7 +32,7 @@
             <div flex='30' id="heros" layout='column' ng-controller='HeroViewController'>
                 <div class='text enemy-text'>Opponent Heroes</div>
                 <div flex='40' class="enemy" layout='row'>
-					<div class="enemy-hero hero-info" flex='20' layout-align='center center' ng-repeat='enemy in enemys'>
+					<div class="enemy-hero hero-info" flex='20' layout-align='center center' ng-repeat='enemy in enemys' ng-click='showHeroDialog(enemy.id)'>
 						<img ng-src="{{enemy.imgSrc}}" alt="">
 						<div class="name">{{enemy.name}}</div>
 					</div>
@@ -66,6 +66,7 @@
     <script src="./public/js/OptionSelectController.js"></script>
     <script src="./public/js/HeroViewController.js"></script>
     <script src="./public/js/SuggestedViewController.js"></script>
+    <script src="./public/js/SelectHeroController.js"></script>
     
 </body>
 </html>

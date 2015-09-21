@@ -64,3 +64,26 @@ md-content #heros .text {
   -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 4px;
   box-shadow: rgba(0, 0, 0, 0.8) 0 0 4px;
 }
+
+md-dialog {
+  height: 90%;
+  width: 90%;
+}
+md-dialog #close-icon {
+  display: inline-block;
+}
+md-dialog #toolbar {
+  padding: 0 5px 0 5px;
+}
+md-dialog #toolbar h3 {
+  margin: 5px 0 5px 0;
+}
+
+#dialog-heros md-pagination-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#dialog-heros md-tabs-wrapper {
+  background-color: #2C80D2;
+}
