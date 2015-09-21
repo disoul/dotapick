@@ -29,18 +29,31 @@
             </md-list>
         </md-sidenav>
         <md-content flex='95' layout-margin layout='column'>
-            <div flex='60' class="heros" layout='column' ng-controller='HeroViewController'>
+            <div flex='30' id="heros" layout='column' ng-controller='HeroViewController'>
                 <div class='text enemy-text'>Opponent Heroes</div>
-                <div flex='20' class="enemy" layout='row'>
-					<div class="enemy-hero" flex='20' layout-align='center center' ng-repeat='enemy in enemys'>
+                <div flex='40' class="enemy" layout='row'>
+					<div class="enemy-hero hero-info" flex='20' layout-align='center center' ng-repeat='enemy in enemys'>
 						<img ng-src="{{enemy.imgSrc}}" alt="">
 						<div class="name">{{enemy.name}}</div>
 					</div>
                 </div>
                 <div class='text firendly-text'>Teanmates Heroes</div>
-                <div flex='20' class="friend"></div>
+                <div flex='40' class="teanmate" layout='row'>
+					<div class="teammate-hero hero-info" flex='20' layout-align='center center' ng-repeat='teammate in teammates'>
+						<img ng-src="{{teammate.imgSrc}}" alt="">
+						<div class="name">{{teammate.name1}}</div>
+					</div>
+				</div>
             </div>
-            <div class="recommend"></div>
+            <div class="suggested" flex layout='column' ng-controller='SuggestedViewController'>
+				<div id="title-text">Suggested Pick</div>
+				<div id="suggested-heros" flex='70' layout='row' layout-wrap>
+					<div class="suggested-hero hero-info" flex='20' layout-align='center center' ng-repeat='hero in herolist'>
+						<img ng-src="{{hero.imgSrc}}" alt="">
+						<div class="name">{{hero.name}}</div>
+					</div>
+				</div>
+			</div>
         </md-content>
 
     <!-- AngularJS  -->
@@ -52,6 +65,7 @@
     <script src="./public/js/LeftlistController.js"></script>
     <script src="./public/js/OptionSelectController.js"></script>
     <script src="./public/js/HeroViewController.js"></script>
+    <script src="./public/js/SuggestedViewController.js"></script>
     
 </body>
 </html>
