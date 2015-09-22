@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 md-dialog {
     height: 90%;
     width: 90%;
@@ -15,8 +17,8 @@ md-dialog {
 #dialog-heros {
     md-pagination-wrapper {
         width: 100%;
-        display: flex;
-        justify-content: center;
+        @include display-flex;
+        @include justify-content(center);
     }
     md-tabs-wrapper {
         background-color: #2C80D2;

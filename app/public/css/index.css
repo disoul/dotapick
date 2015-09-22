@@ -85,7 +85,9 @@ md-dialog #toolbar h3 {
 
 #dialog-heros md-pagination-wrapper {
   width: 100%;
+  display: -webkit-flex;
   display: flex;
+  -webkit-justify-content: center;
   justify-content: center;
 }
 #dialog-heros md-tabs-wrapper {
