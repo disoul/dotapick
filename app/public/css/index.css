@@ -15,10 +15,6 @@ md-sidenav {
   }
 }
 
-md-content #heros {
-  margin-top: 30px;
-}
-
 md-content #heros .text {
   text-align: center;
   font-size: 20px;

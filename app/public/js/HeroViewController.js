@@ -43,9 +43,5 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
             $scope.answer = function(answer){
                 $mdDialog.hide(answer);
             }
-            $scope.scroll = function() {
-                if (strScroll == null)
-                    strScroll = new IScroll('#tab-content-15');
-            }
         }
     }]);

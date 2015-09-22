@@ -30,20 +30,20 @@
                 </md-input-container>
             </md-list>
         </md-sidenav>
-        <md-content flex='95' layout-margin layout='column'>
-            <div flex='30' id="heros" layout='column' ng-controller='HeroViewController'>
-                <div class='text enemy-text'>Opponent Heroes</div>
-                <div flex='40' class="enemy" layout='row'>
+        <md-content flex='95' layout-margin layout='column' layout-align='start center'>
+            <div id="heros" layout='column' ng-controller='HeroViewController'>
+                <div  class='text enemy-text'>Opponent Heroes</div>
+                <div  class="enemy" layout='row'>
 					<div class="enemy-hero hero-info" flex='20' layout-align='center center' ng-repeat='enemy in enemys' ng-click='showHeroDialog(enemy.id)'>
 						<img ng-src="{{enemy.imgSrc}}" alt="">
 						<div class="name">{{enemy.name}}</div>
 					</div>
                 </div>
-                <div class='text firendly-text'>Teammates Heroes</div>
-                <div flex='40' class="teanmate" layout='row'>
+                <div  class='text firendly-text'>Teammates Heroes</div>
+                <div  class="teanmate" layout='row'>
 					<div class="teammate-hero hero-info" flex='20' layout-align='center center' ng-repeat='teammate in teammates'>
 						<img ng-src="{{teammate.imgSrc}}" alt="">
-						<div class="name">{{teammate.name1}}</div>
+						<div class="name">{{teammate.name}}</div>
 					</div>
 				</div>
             </div>
