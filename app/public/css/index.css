@@ -98,8 +98,13 @@ md-dialog #toolbar h3 {
 }
 
 #dialog-content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   height: 100%;
 }
 #dialog-content md-tabs {
-  height: 100%;
+  -webkit-flex: 1;
+  flex: 1;
 }
