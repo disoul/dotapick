@@ -61,6 +61,10 @@ md-content #heros .text {
   box-shadow: rgba(0, 0, 0, 0.8) 0 0 4px;
 }
 
+#dialog-content md-tab-content {
+  overflow: hidden;
+}
+
 md-dialog {
   height: 90%;
   width: 90%;

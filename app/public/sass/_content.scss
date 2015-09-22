@@ -40,3 +40,7 @@ md-content #heros .text {
 		@include box-shadow(rgba(black, 0.8) 0 0 4px);
 	}
 }
+
+#dialog-content md-tab-content {
+    overflow: hidden;
+}
