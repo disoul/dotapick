@@ -21,7 +21,10 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
                 templateUrl: 'herodialog.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
-                clickOutsideToClose: true
+                clickOutsideToClose: true,
+                disableParentScroll: false,
+                locals: {heroid: id},
+                onComplete: goScroll()
             })
             .then(function(answer) {
                 
@@ -39,6 +42,10 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
             }
             $scope.answer = function(answer){
                 $mdDialog.hide(answer);
+            }
+            $scope.scroll = function() {
+                if (strScroll == null)
+                    strScroll = new IScroll('#tab-content-15');
             }
         }
     }]);

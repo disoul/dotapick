@@ -90,3 +90,10 @@ md-dialog #toolbar h3 {
 #dialog-heros md-ink-bar {
   height: 3px;
 }
+
+#dialog-content {
+  height: 100%;
+}
+#dialog-content md-tabs {
+  height: 100%;
+}

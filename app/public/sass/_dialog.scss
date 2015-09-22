@@ -26,3 +26,9 @@ md-dialog {
     }
 }
 
+#dialog-content {
+    height: 100%;
+    md-tabs {
+        height: 100%;
+    }
+}

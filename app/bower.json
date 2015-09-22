@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "angular-material": "~0.11.0",
-    "angularjs": "~1.4.6"
+    "angularjs": "~1.4.6",
+    "iscroll": "~5.1.3"
   }
 }

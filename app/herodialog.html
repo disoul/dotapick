@@ -1,14 +1,26 @@
-<md-dialog aria-label='Select Hero'>
+ <md-dialog aria-label='Select Hero'>
     <md-toolbar layout='row' layout-align='space-between center' id='toolbar'>
         <h3>Select Hero</h3>
         <md-button class='md-icon-button' ng-click='cancel()' id='close-icon'>
             <md-icon md-svg-src='./public/assets/svg/share.svg' aria-label='close dialog'></md-icon>
         </md-button>
     </md-toolbar>
-    <md-content ng-controller='SelectHeroController'>
+    <md-content id='dialog-content' ng-controller='SelectHeroController'>
         <md-tabs id='dialog-heros' class='md-accent' md-selected='selectedIndex' md-align-tabs='top'>
             <md-tab id='str'>
                 <md-tab-label><span><img src="./public/image/overviewicon_str.png" alt=""></span></md-tab-label>
+                <md-tab-body layout='column' id='str_body'>
+                    <div id='heroblock' class="block1" flex='60' layout='row' layout-align='start center' layout-wrap>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(0,21)'>
+                            <img ng-src={{hero.imgUrl}} alt="">
+                        </div>
+                    </div>
+                    <div class="block2" flex='40' layout='row' layout-align='start center' layout-wrap>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(21,36)'>
+                            <img ng-src={{hero.imgUrl}} alt="">
+                        </div>
+                    </div>
+                </md-tab-body>
             </md-tab>
             <md-tab id='agi'>
             <md-tab-label><span><img src="./public/image/overviewicon_agi.png" alt=""></span></md-tab-label>

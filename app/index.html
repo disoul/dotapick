@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="./public/css/index.css">
+    <script src='./bower_components/iscroll/build/iscroll.js'></script>
+    <script src='./public/js/scroll.js'></script>
     <title>Dota Pick</title>
 </head>
 <body layout='column'>
@@ -37,7 +39,7 @@
 						<div class="name">{{enemy.name}}</div>
 					</div>
                 </div>
-                <div class='text firendly-text'>Teanmates Heroes</div>
+                <div class='text firendly-text'>Teammates Heroes</div>
                 <div flex='40' class="teanmate" layout='row'>
 					<div class="teammate-hero hero-info" flex='20' layout-align='center center' ng-repeat='teammate in teammates'>
 						<img ng-src="{{teammate.imgSrc}}" alt="">
@@ -62,6 +64,7 @@
     <script src="./bower_components/angular-aria/angular-aria.js"></script>
     <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="./public/js/app.js"></script>
+    <script src="./public/js/heronames.js"></script>
     <script src="./public/js/LeftlistController.js"></script>
     <script src="./public/js/OptionSelectController.js"></script>
     <script src="./public/js/HeroViewController.js"></script>
