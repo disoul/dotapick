@@ -65,6 +65,10 @@ md-content #heros .text {
   overflow: hidden;
 }
 
+#dialog-content {
+  overflow: hidden;
+}
+
 md-dialog {
   height: 90%;
   width: 90%;
