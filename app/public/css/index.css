@@ -53,7 +53,7 @@ md-content #heros .text {
 }
 
 #suggested-heros {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 #suggested-heros .suggested-hero img {
   -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 4px;
