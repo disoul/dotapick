@@ -29,6 +29,12 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
             .then(function(answer) {
                 
             }, function(){
+                strScroll.dstroy();
+                strScroll = null;
+                agiScroll.dstroy();
+                agiScroll = null;
+                intScroll.dstroy();
+                intScroll = null;
                 //cancel dialog
             });
         };

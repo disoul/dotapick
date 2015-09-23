@@ -9,4 +9,14 @@ var HeroToImg = {
     "Lifestealer": "life_stealer",
     "Doom": "doom_bringer",
     "Magnus": "magnataur",
+    "Anti-Mage": "antimage",
+    "Vengeful Spirit": "vengefulspirit",
+    "Shadow Fiend": "nevermore",
+    "Windranger": "windrunner",
+    "Zeus": "zuus",
+    "Nature's Prophet": "furion",
+    "Necrophos": "necrolyte",
+    "Queen of Pain": "queenofpain",
+    "Outworld Devourer": "obsidian_destroyer"
+
 };

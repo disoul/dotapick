@@ -33,10 +33,4 @@ app.controller('SelectHeroController', ['$scope', 'Heroname',
                 name: heroname
             }    
         });
-        $scope.scroll = function() {
-            if (strScroll == null) {
-                console.log('ddd');
-                strScroll = new IScroll('ng-scope.md-no-transition.md-active');
-            }
-        }
     }]);
