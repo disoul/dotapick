@@ -11,7 +11,7 @@
                 <md-tab-label><span><img src="./public/image/overviewicon_str.png" alt=""></span></md-tab-label>
                 <md-tab-body layout='column' id='str_body'>
                     <div id='heroblock' class="block1" flex='60' layout='row' layout-align='start center' layout-wrap>
-                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(0,21)'>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(0,21)' ng-click='answer(hero.imgUrl)'>
                             <img ng-src={{hero.imgUrl}} alt="">
                         </div>
                     </div>

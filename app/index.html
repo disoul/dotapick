@@ -41,7 +41,7 @@
                 </div>
                 <div  class='text firendly-text'>Teammates Heroes</div>
                 <div  class="teanmate" layout='row'>
-					<div class="teammate-hero hero-info" flex='20' layout-align='center center' ng-repeat='teammate in teammates'>
+					<div class="teammate-hero hero-info" flex='20' layout-align='center center' ng-repeat='teammate in teammates' ng-click='showHeroDialog(teammate.id)'>
 						<img ng-src="{{teammate.imgSrc}}" alt="">
 						<div class="name">{{teammate.name}}</div>
 					</div>

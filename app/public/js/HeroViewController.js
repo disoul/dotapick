@@ -15,7 +15,8 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
             }
         });
 
-        $scope.showHeroDialog = function(ev, id){
+        $scope.showHeroDialog = function(ev){
+            var id = arguments[0];
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'herodialog.html',
@@ -23,17 +24,20 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 disableParentScroll: false,
-                locals: {heroid: id},
                 onComplete: goScroll()
             })
             .then(function(answer) {
-                
+                if (id < 6) {
+                    $scope.enemys[id - 1].imgSrc = answer;
+                }else {
+                    $scope.teammates[id - 6].imgSrc = answer;
+                }                
             }, function(){
-                strScroll.dstroy();
+                strScroll.destroy();
                 strScroll = null;
-                agiScroll.dstroy();
+                agiScroll.destroy();
                 agiScroll = null;
-                intScroll.dstroy();
+                intScroll.destroy();
                 intScroll = null;
                 //cancel dialog
             });

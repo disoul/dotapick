@@ -33,4 +33,5 @@ app.controller('SelectHeroController', ['$scope', 'Heroname',
                 name: heroname
             }    
         });
+
     }]);
