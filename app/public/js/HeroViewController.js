@@ -41,8 +41,8 @@ app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero',
                     $scope.teammates[id - 6].imgSrc = answer[0];
                     $scope.teammates[id - 6].name = answer[1];
                 }                
-				suggestheros = $Hero.suggest($scope.getArray($scope.enemys), $scope.getArray($scope.teammates));
-				console.log(suggestheros);
+				$scope.suggestheros = $Hero.suggest($scope.getArray($scope.enemys), $scope.getArray($scope.teammates));
+                $scope.$emit('SuggestCall',$scope.suggestheros);
             }, function(){
                 strScroll.destroy();
                 strScroll = null;

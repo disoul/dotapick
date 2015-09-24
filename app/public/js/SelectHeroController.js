@@ -24,10 +24,12 @@ app.service('$Hero', function(){
         };
 		var getWinrate = function(hero1, hero2) {
 			var key = hero1 + '_' + hero2;
-			if (winrate[key] = undefined) {
-				return parseFloat(winrate[key]);    
+			if (winrate[key] != undefined) {
+                console.log(key,winrate[key]);
+				return parseFloat(winrate[key]); 
 			}else {
 				key = hero2 + '_' + hero1;
+                console.log(key,winrate[key]);
 				return parseFloat(winrate[key]);
 			}
 		};
@@ -42,13 +44,13 @@ app.service('$Hero', function(){
             }
             suggest.list.push({'name': name, 'winrate': winrate});
             for (var i = 2;i < suggest.list.length;i++) {
-                if (parseFloat(suggest.list[i]['winrate']) < parseFloat(suggest.list[min]['winrate'])) {
+                if (suggest.list[i]['winrate'] < suggest.list[min]['winrate']) {
                     mmin = min;
                     min = i;
                 }
             }
             suggest.list.splice(min,1);
-            suggest.minWinrate = parseFloat(suggest.list[mmin]['winrate']);
+            suggest.minWinrate = suggest.list[mmin]['winrate'];
         }
 
         HEROS.heronames.forEach(function(heroname){

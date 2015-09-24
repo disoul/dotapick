@@ -30,7 +30,7 @@
                 </md-input-container>
             </md-list>
         </md-sidenav>
-        <md-content flex='92' layout-margin layout='column' layout-align='start center'>
+        <md-content flex='92' layout-margin layout='column' layout-align='start center' ng-controller='ContentController'>
             <div id="heros" layout='column' ng-controller='HeroViewController'>
                 <div  class='text enemy-text'>Opponent Heroes</div>
                 <div  class="enemy" layout='row'>
@@ -63,6 +63,7 @@
     <script src="./public/js/app.js"></script>
     <script src="./public/js/heronames.js"></script>
     <script src="./public/js/LeftlistController.js"></script>
+    <script src="./public/js/ContentController.js"></script>
     <script src="./public/js/OptionSelectController.js"></script>
     <script src="./public/js/HeroViewController.js"></script>
     <script src="./public/js/SuggestedViewController.js"></script>
