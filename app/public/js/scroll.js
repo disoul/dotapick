@@ -9,6 +9,7 @@ function goScroll() {
         intScroll = new IScroll(blocknode3);
     }
     catch (err){
+		console.error(err);
         setTimeout("goScroll()",500);
         console.log('try');
     }

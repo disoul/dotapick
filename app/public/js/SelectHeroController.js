@@ -16,16 +16,21 @@ app.service('$Hero', function(){
         return url + '_hphover.png';
     };
 
-    this.getWinrate = function(hero1, hero2) {
-        var key = hero1 + '_' + hero2;
-        return winrate[key];    
-    };
 
     this.suggest = function(enemys, teammates) {
         var suggest = {
             list: [],
             minWinrate: 0
         };
+		var getWinrate = function(hero1, hero2) {
+			var key = hero1 + '_' + hero2;
+			if (winrate[key] = undefined) {
+				return parseFloat(winrate[key]);    
+			}else {
+				key = hero2 + '_' + hero1;
+				return parseFloat(winrate[key]);
+			}
+		};
 
         function saveSuggestList(name, winrate) {
             if (suggest.list[0]['winrate'] > suggest.list[1]['winrate']) {
@@ -37,17 +42,17 @@ app.service('$Hero', function(){
             }
             suggest.list.push({'name': name, 'winrate': winrate});
             for (var i = 2;i < suggest.list.length;i++) {
-                if (suggest.list[i]['winrate'] < suggest.list[min]['winrate']) {
+                if (parseFloat(suggest.list[i]['winrate']) < parseFloat(suggest.list[min]['winrate'])) {
                     mmin = min;
                     min = i;
                 }
             }
             suggest.list.splice(min,1);
-            suggest.minWinrate = suggest.list[mmin]['winrate'];
+            suggest.minWinrate = parseFloat(suggest.list[mmin]['winrate']);
         }
 
         HEROS.heronames.forEach(function(heroname){
-            if ((enemys.indexOf(heronames) == -1) && (teammates.indexOf(heroname) == -1)) {
+            if ((enemys.indexOf(heroname) == -1) && (teammates.indexOf(heroname) == -1)) {
                 var herowinrate = 0;
                 enemys.forEach(function(enemy){
                     if (enemy == '') return;
@@ -55,10 +60,21 @@ app.service('$Hero', function(){
                 });
 
                 if (suggest.list.length < 20) {
-                    suggest.list.push({heroname: herowinrate});
-                }
+                    suggest.list.push({'name': heroname, 'winrate': herowinrate});
+				}else if (suggest.minWinrate < herowinrate) {
+					saveSuggestList(heroname, herowinrate);
+				}
             }  
         });
+		return suggest.list.sort(function(a, b) {
+			if (a.winrate > b.winrate) {
+				return -1;
+			}
+			if (a.winrate < b.winrate) {
+				return 1;
+			}
+			return 0;
+		});
     }
 
 });

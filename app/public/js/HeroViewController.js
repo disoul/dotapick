@@ -1,5 +1,5 @@
-app.controller('HeroViewController', ['$scope', '$mdDialog', 
-    function($scope, $mdDialog){
+app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero',
+    function($scope, $mdDialog, $Hero){
         $scope.enemys = range(5, 1).map(function(num){
             return {
                 id: num,
@@ -14,6 +14,13 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
                 name: ''
             }
         });
+		$scope.getArray = function(objList) {
+			var array = new Array(objList.length);
+			for (var i = 0;i < array.length;i++) {
+				array[i] = objList[i].name
+			}
+			return array;
+		}
 
         $scope.showHeroDialog = function(ev){
             var id = arguments[0];
@@ -34,6 +41,8 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
                     $scope.teammates[id - 6].imgSrc = answer[0];
                     $scope.teammates[id - 6].name = answer[1];
                 }                
+				suggestheros = $Hero.suggest($scope.getArray($scope.enemys), $scope.getArray($scope.teammates));
+				console.log(suggestheros);
             }, function(){
                 strScroll.destroy();
                 strScroll = null;

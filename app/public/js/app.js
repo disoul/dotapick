@@ -7,3 +7,8 @@ function range(amout, start) {
     }
     return array;
 }
+
+var suggestheros = [];
+for (var i = 0;i < 20;i++) {
+	suggestheros[i] = '';
+}
