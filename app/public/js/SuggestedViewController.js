@@ -14,6 +14,7 @@ app.controller('SuggestedViewController', ['$scope', '$Hero',
             }
         };
         $scope.$on('ChangeSuggestCall', function(ev, suggest){
+            console.log(suggest);
             $scope.update(suggest);
         });
     }]);

@@ -30,7 +30,7 @@ app.service('$Hero', function(){
 			}else {
 				key = hero2 + '_' + hero1;
                 console.log(key,winrate[key]);
-				return parseFloat(winrate[key]);
+				return 0 - parseFloat(winrate[key]);
 			}
 		};
 
