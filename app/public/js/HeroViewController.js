@@ -1,13 +1,13 @@
 app.controller('HeroViewController', ['$scope', '$mdDialog', 
     function($scope, $mdDialog){
-        $scope.enemys = [1, 2, 3, 4, 5].map(function(num){
+        $scope.enemys = range(5, 1).map(function(num){
             return {
                 id: num,
                 imgSrc: './public/image/nohero.jpg',
                 name: ''
             };
         });
-        $scope.teammates = [6, 7, 8, 9, 10].map(function(num){
+        $scope.teammates = range(5, 6).map(function(num){
             return {
                 id: num,
                 imgSrc: './public/image/nohero.jpg',
@@ -28,9 +28,11 @@ app.controller('HeroViewController', ['$scope', '$mdDialog',
             })
             .then(function(answer) {
                 if (id < 6) {
-                    $scope.enemys[id - 1].imgSrc = answer;
+                    $scope.enemys[id - 1].imgSrc = answer[0];
+                    $scope.enemys[id - 1].name = answer[1];
                 }else {
-                    $scope.teammates[id - 6].imgSrc = answer;
+                    $scope.teammates[id - 6].imgSrc = answer[0];
+                    $scope.teammates[id - 6].name = answer[1];
                 }                
             }, function(){
                 strScroll.destroy();

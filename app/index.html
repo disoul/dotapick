@@ -36,14 +36,12 @@
                 <div  class="enemy" layout='row'>
 					<div class="enemy-hero hero-info" flex='20' layout-align='center center' ng-repeat='enemy in enemys' ng-click='showHeroDialog(enemy.id)'>
 						<img ng-src="{{enemy.imgSrc}}" alt="">
-						<div class="name">{{enemy.name}}</div>
 					</div>
                 </div>
                 <div  class='text firendly-text'>Teammates Heroes</div>
                 <div  class="teanmate" layout='row'>
 					<div class="teammate-hero hero-info" flex='20' layout-align='center center' ng-repeat='teammate in teammates' ng-click='showHeroDialog(teammate.id)'>
 						<img ng-src="{{teammate.imgSrc}}" alt="">
-						<div class="name">{{teammate.name}}</div>
 					</div>
 				</div>
             </div>
@@ -52,7 +50,6 @@
 				<div id="suggested-heros" flex layout='row' layout-wrap>
 					<div class="suggested-hero hero-info" flex='25' layout-align='center center' ng-repeat='hero in herolist'>
 						<img ng-src="{{hero.imgSrc}}" alt="">
-						<div class="name">{{hero.name}}</div>
 					</div>
 				</div>
 			</div>
@@ -70,6 +67,7 @@
     <script src="./public/js/HeroViewController.js"></script>
     <script src="./public/js/SuggestedViewController.js"></script>
     <script src="./public/js/SelectHeroController.js"></script>
+    <script src="./public/js/winrate.js"></script>
     
 </body>
 </html>

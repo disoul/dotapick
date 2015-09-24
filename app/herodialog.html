@@ -11,12 +11,12 @@
                 <md-tab-label><span><img src="./public/image/overviewicon_str.png" alt=""></span></md-tab-label>
                 <md-tab-body layout='column' id='str_body'>
                     <div id='heroblock' class="block1" flex='60' layout='row' layout-align='start center' layout-wrap>
-                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(0,21)' ng-click='answer(hero.imgUrl)'>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(0,21)' ng-click='answer([hero.imgUrl, hero.name])'>
                             <img ng-src={{hero.imgUrl}} alt="">
                         </div>
                     </div>
                     <div class="block2" flex='40' layout='row' layout-align='start center' layout-wrap>
-                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(21,36)'>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(21,36)'ng-click='answer([hero.imgUrl, hero.name])'>
                             <img ng-src={{hero.imgUrl}} alt="">
                         </div>
                     </div>
@@ -26,12 +26,12 @@
                 <md-tab-label><span><img src="./public/image/overviewicon_agi.png" alt=""></span></md-tab-label>
                 <md-tab-body layout='column'>
                     <div id='heroblock2' class="block3" flex='50' layout='row' layout-align='start center' layout-wrap>
-                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(36,54)'>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(36,54)'ng-click='answer([hero.imgUrl, hero.name])'>
                             <img ng-src={{hero.imgUrl}} alt="">
                         </div>
                     </div>
                     <div class="block4" flex='40' layout='row' layout-align='start center' layout-wrap>
-                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(54,70)'>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(54,70)'ng-click='answer([hero.imgUrl, hero.name])'>
                             <img ng-src={{hero.imgUrl}} alt="">
                         </div>
                     </div>
@@ -41,12 +41,12 @@
             <md-tab-label><span><img src="./public/image/overviewicon_int.png" alt=""></span></md-tab-label>
                 <md-tab-body layout='column'>
                     <div id='heroblock3' class="block5" flex='50' layout='row' layout-align='start center' layout-wrap>
-                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(70,90)'>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(70,90)'ng-click='answer([hero.imgUrl, hero.name])'>
                             <img ng-src={{hero.imgUrl}} alt="">
                         </div>
                     </div>
                     <div class="block6" flex='50' layout='row' layout-align='start center' layout-wrap>
-                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(90,110)'>
+                        <div flex='25' class="hero-info heroblock" ng-repeat='hero in heros.slice(90,110)'ng-click='answer([hero.imgUrl, hero.name])'>
                             <img ng-src={{hero.imgUrl}} alt="">
                         </div>
                     </div>
