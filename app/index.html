@@ -10,7 +10,7 @@
     <script src='./public/js/scroll.js'></script>
     <title>Dota Pick</title>
 </head>
-<body layout='column' md-swipe-right='openList()' md-swipe-left='closeList()' ng-controller='BodyController'>
+<body layout='column'  ng-controller='BodyController'md-swipe-left='closeList()'>
     <md-toolbar flex='5' class="header" layout='row' layout-align='start center'>
         <md-button hide-gt-md ng-click="openList()" aria-label="Show List">
             <md-icon md-svg-icon="./public/assets/svg/menu.svg"></md-icon>
@@ -30,7 +30,7 @@
                 </md-input-container>
             </md-list>
         </md-sidenav>
-        <md-content flex='92' layout-margin layout='column' layout-align='start center' ng-controller='ContentController'>
+        <md-content flex='92' layout-margin layout='column' layout-align='start center' ng-controller='ContentController' md-swipe-right='openList()' >
             <div id="heros" layout='column' ng-controller='HeroViewController'>
                 <div  class='text enemy-text'>Opponent Heroes</div>
                 <div  class="enemy" layout='row'>

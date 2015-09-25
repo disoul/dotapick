@@ -88,7 +88,7 @@ app.controller('SelectHeroController', ['$scope', '$Hero',
             $scope.selectedIndex = Math.min($scope.selectedIndex + 1, 2);
         }
         $scope.previous = function(){
-            $scope.selectedIndex = Math.min($scope.selectedIndex - 1, 0);
+            $scope.selectedIndex = Math.max($scope.selectedIndex - 1, 0);
         }
 
         $scope.heros = HEROS.heronames.map(function(heroname){
