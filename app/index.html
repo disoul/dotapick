@@ -10,8 +10,8 @@
     <script src='./public/js/scroll.js'></script>
     <title>Dota Pick</title>
 </head>
-<body layout='column'>
-    <md-toolbar flex='5' class="header" layout='row' layout-align='start center' ng-controller='ListController'>
+<body layout='column' md-swipe-right='openList()' md-swipe-left='closeList()' ng-controller='BodyController'>
+    <md-toolbar flex='5' class="header" layout='row' layout-align='start center'>
         <md-button hide-gt-md ng-click="openList()" aria-label="Show List">
             <md-icon md-svg-icon="./public/assets/svg/menu.svg"></md-icon>
         </md-button>
@@ -62,6 +62,7 @@
     <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="./public/js/app.js"></script>
     <script src="./public/js/heronames.js"></script>
+    <script src="./public/js/BodyController.js"></script>
     <script src="./public/js/LeftlistController.js"></script>
     <script src="./public/js/ContentController.js"></script>
     <script src="./public/js/OptionSelectController.js"></script>
