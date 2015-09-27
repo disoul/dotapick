@@ -41,7 +41,7 @@ app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero',
                     $scope.teammates[id - 6].imgSrc = answer[0];
                     $scope.teammates[id - 6].name = answer[1];
                 }                
-				$scope.suggestheros = $Hero.suggest($scope.getArray($scope.enemys), $scope.getArray($scope.teammates));
+				$scope.suggestheros = $Hero.suggest($scope.getArray($scope.enemys), $scope.getArray($scope.teammates), $scope.options);
                 $scope.$emit('SuggestCall',$scope.suggestheros);
             }, function(){
                 strScroll.destroy();
@@ -53,6 +53,12 @@ app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero',
                 //cancel dialog
             });
         };
+
+        $scope.$on('SelectChange',function(){
+            console.log('333');
+			$scope.suggestheros = $Hero.suggest($scope.getArray($scope.enemys), $scope.getArray($scope.teammates), $scope.options);
+            $scope.$emit('SuggestCall',$scope.suggestheros); 
+        });
 
         function DialogController($scope, $mdDialog){
             $scope.hide = function(){

@@ -2,7 +2,9 @@
 <html ng-app='dotapick'>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1 user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 启用 WebApp 全屏模式 -->
+
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link rel="stylesheet" href="./public/css/index.css">
@@ -19,10 +21,10 @@
     </md-toolbar>
 
         <md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left' style='position:absolute;'>
-            <md-list layout='column' ng-controller='OptionsSelectController'>
+            <md-list layout='column'>
                 <md-input-container ng-repeat='option in options'>
                 <label>{{option.name}}</label>
-                <md-select ng-model = 'option.userStates'>
+                <md-select ng-model = 'option.userStates' ng-change='updateSuggestHeros()'>
                 <md-option ng-repeat='state in option.states' value='{{state}}'>
                 {{state}}
                 </md-option>

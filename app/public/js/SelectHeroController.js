@@ -17,20 +17,23 @@ app.service('$Hero', function(){
     };
 
 
-    this.suggest = function(enemys, teammates) {
+    this.suggest = function(enemys, teammates, options) {
         var suggest = {
             list: [],
             minWinrate: 0
         };
 		var getWinrate = function(hero1, hero2) {
 			var key = hero1 + '_' + hero2;
-			if (winrate[key] != undefined) {
-                console.log(key,winrate[key]);
-				return parseFloat(winrate[key]); 
+
+            select = options.map(function(option){
+                return option.userStates.substr(0,1).toLowerCase();
+            }).join("");
+
+			if (winrate[select][key] != undefined) {
+				return parseFloat(winrate[select][key]); 
 			}else {
 				key = hero2 + '_' + hero1;
-                console.log(key,winrate[key]);
-				return 0 - parseFloat(winrate[key]);
+				return 0 - parseFloat(winrate[select][key]);
 			}
 		};
 
