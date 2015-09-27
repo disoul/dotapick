@@ -5,13 +5,14 @@ class HeroWinrateSpider(scrapy.Spider):
     name = 'herowinrate'
     allowed_domains = ['dotamax.com']
     start_urls = []
+    select = 'vcv'
 
     def __init__(self):
     #get urls from redis
         db = redis.StrictRedis(db=1)
         for url in db.lrange('herourls', 0, 999):
             self.start_urls.append('http://dotamax.com/' + url.split('/')[1] + 
-                              '/detail/match_up_anti/' + url.split('/')[3])
+                              '/detail/match_up_anti/' + url.split('/')[3] + '?skill=vh&time=v685&server=cn')
 
 
     def parse(self, response):
@@ -25,10 +26,10 @@ class HeroWinrateSpider(scrapy.Spider):
     def save_winrate(self, matchup, opponent_names, name):
         db = redis.StrictRedis(db=1)
         for index,item in enumerate(matchup):
-            key = 'dphw_'+opponent_names[index]+'_'+name
+            key = 'dphw_'+self.select+'_'+opponent_names[index]+'_'+name
             if db.get(key) != None:
                 # if alreday have B_A key, update B_A key to average value
                 # else create A_B key
                 db.set(key, (float(db.get(key))-float(item)) / 2)
             else:
-                db.set('dphw_'+name+'_'+opponent_names[index], item)
+                db.set('dphw_'+self.select+'_'+name+'_'+opponent_names[index], item)
