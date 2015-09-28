@@ -2,8 +2,10 @@
 import redis
 import json
 
-selects = ['maa', 'man', 'mah', 'mav', 'mca', 'mcn', 'mch', 'mcv',
-           'vaa', 'van', 'vah', 'vav', 'vca', 'vcn', 'vch', 'vcv']
+selects = ['amaa', 'aman', 'amah', 'amav', 'amca', 'amcn', 'amch', 'amcv',
+           'avaa', 'avan', 'avah', 'avav', 'avca', 'avcn', 'avch', 'avcv',
+           'cmaa', 'cman', 'cmah', 'cmav', 'cmca', 'cmcn', 'cmch', 'cmcv',
+           'cvaa', 'cvan', 'cvah', 'cvav', 'cvca', 'cvcn', 'cvch', 'cvcv']
 
 def main():
 
@@ -14,7 +16,7 @@ def main():
             names = db.keys('dphw_'+select+'*')
             winrate[select] = {};
             for name in names:
-                winrate[select][name[9:]] = db.get(name)
+                winrate[select][name[10:]] = db.get(name)
         f.write('var winrate= ')
         json.dump(winrate, f)
         print('OK');

@@ -22,18 +22,23 @@ app.service('$Hero', function(){
             list: [],
             minWinrate: 0
         };
-		var getWinrate = function(hero1, hero2) {
+		var getWinrate = function(hero1, hero2, isAnti) {
 			var key = hero1 + '_' + hero2;
 
             select = options.map(function(option){
                 return option.userStates.substr(0,1).toLowerCase();
             }).join("");
+            isAnti ? select = 'a' + select : select = 'c' + select;
 
 			if (winrate[select][key] != undefined) {
 				return parseFloat(winrate[select][key]); 
 			}else {
 				key = hero2 + '_' + hero1;
-				return 0 - parseFloat(winrate[select][key]);
+                if (isAnti){
+                    return 0 - parseFloat(winrate[select][key]);
+                }else {
+                    return parseFloat(winrate[select][key]);
+                }
 			}
 		};
 
@@ -61,8 +66,13 @@ app.service('$Hero', function(){
                 var herowinrate = 0;
                 enemys.forEach(function(enemy){
                     if (enemy == '') return;
-                    herowinrate += getWinrate(heroname, enemy);
+                    herowinrate += getWinrate(heroname, enemy, true);
                 });
+
+                teammates.forEach(function(teammate) {
+                    if (teammate == '') return;
+                    herowinrate += getWinrate(heroname, teammate, false); 
+                })
 
                 if (suggest.list.length < 20) {
                     suggest.list.push({'name': heroname, 'winrate': herowinrate});
