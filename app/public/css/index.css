@@ -1,16 +1,24 @@
 body {
   overflow: hidden;
+  background-image: url("../image/background.jpg");
 }
 
 md-sidenav {
   height: 100%;
 }
 
-.header .logo {
+#header {
+  background-image: url("../image/tollbar.jpg");
+  background-size: 100% 100%;
+  -moz-box-shadow: rgba(0, 0, 0, 0.9) 0 0 7px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.9) 0 0 7px;
+  box-shadow: rgba(0, 0, 0, 0.9) 0 0 7px;
+}
+#header .logo {
   font-size: 30px;
 }
 @media (min-width: 960px) {
-  .header {
+  #header {
     justify-content: center;
   }
 }
@@ -69,6 +77,19 @@ md-content #heros .text {
   overflow: hidden;
 }
 
+#main-content {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#left-side md-list {
+  z-index: 100;
+}
+#left-side img {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+}
+
 md-dialog {
   height: 90%;
   width: 90%;
@@ -78,11 +99,22 @@ md-dialog #close-icon {
 }
 md-dialog #toolbar {
   padding: 0 5px 0 5px;
+  background-image: url("../image/tollbar.jpg");
+  background-size: 100% 100%;
+  -moz-box-shadow: rgba(0, 0, 0, 0.9) 0 0 6px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.9) 0 0 6px;
+  box-shadow: rgba(0, 0, 0, 0.9) 0 0 6px;
 }
 md-dialog #toolbar h3 {
-  margin: 5px 0 5px 0;
+  margin: 5px 0px 5px 10px;
 }
 
+#dialog-heros {
+  background: -webkit-linear-gradient(300deg, #000, #47100F);
+  background: -o-linear-gradient(300deg, #000, #47100F);
+  background: -moz-linear-gradient(300deg, #000, #47100F);
+  background: linear-gradient(300deg, #000000, #47100f);
+}
 #dialog-heros md-pagination-wrapper {
   width: 100%;
   display: -webkit-flex;
@@ -91,10 +123,11 @@ md-dialog #toolbar h3 {
   justify-content: center;
 }
 #dialog-heros md-tabs-wrapper {
-  background-color: #2C80D2;
+  background-color: rgba(255, 255, 255, 0);
 }
 #dialog-heros md-ink-bar {
   height: 3px;
+  background: #B3520B none repeat scroll 0% 0%;
 }
 
 #dialog-content {

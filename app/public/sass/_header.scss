@@ -1,8 +1,14 @@
-.header {
+@import "compass/css3";
+
+#header {
 	.logo {
 		font-size: 30px;
 	}
 	@media(min-width: 960px){
 		justify-content: center;
 	}
+    background-image: url('../image/tollbar.jpg');
+    background-size: 100% 100%;
+    @include box-shadow(rgba(black, 0.9) 0 0 7px);
+
 }

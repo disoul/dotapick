@@ -13,14 +13,14 @@
     <title>Dota Pick</title>
 </head>
 <body layout='column'  ng-controller='BodyController'md-swipe-left='closeList()'>
-    <md-toolbar flex='5' class="header" layout='row' layout-align='start center'>
+    <md-toolbar flex='5' id="header" layout='row' layout-align='start center'>
         <md-button hide-gt-md ng-click="openList()" aria-label="Show List">
             <md-icon md-svg-icon="./public/assets/svg/menu.svg"></md-icon>
         </md-button>
         <div class="logo" >DotaPick</div>
     </md-toolbar>
 
-        <md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left' style='position:absolute;'>
+        <md-sidenav  md-is-locked-open="$mdMedia('gt-md')" class='md-whiteframe-z2' md-component-id='left' style='position:absolute;' id='left-side'>
             <md-list layout='column'>
                 <md-input-container ng-repeat='option in options'>
                 <label>{{option.name}}</label>
@@ -31,8 +31,9 @@
                 </md-select>
                 </md-input-container>
             </md-list>
+            <img src="./public/image/side_bg.png" alt="">
         </md-sidenav>
-        <md-content flex='92' layout-margin layout='column' layout-align='start center' ng-controller='ContentController' md-swipe-right='openList()' >
+        <md-content flex='92' layout-margin layout='column' layout-align='start center' ng-controller='ContentController' md-swipe-right='openList()' id='main-content'>
             <div id="heros" layout='column' ng-controller='HeroViewController'>
                 <div  class='text enemy-text'>Opponent Heroes</div>
                 <div  class="enemy" layout='row'>

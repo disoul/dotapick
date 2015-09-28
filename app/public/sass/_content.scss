@@ -48,3 +48,18 @@ md-content #heros .text {
 #dialog-content {
     overflow:hidden;
 }
+
+#main-content {
+    background-color: rgba(white, 0);
+}
+
+#left-side {
+    md-list {
+        z-index: 100;
+    }
+    img {
+        width: 100%;
+        position: absolute;
+        bottom: 30px;
+    }
+}

@@ -1,5 +1,12 @@
 @import "compass/css3";
 
+@mixin linear-gradient($angel, $color1, $color2) {
+    background: -webkit-linear-gradient($angel, $color1, $color2);
+    background: -o-linear-gradient($angel, $color1, $color2);
+    background: -moz-linear-gradient($angel, $color1, $color2);
+    background: linear-gradient($angel, $color1, $color2);
+}
+
 md-dialog {
     height: 90%;
     width: 90%;
@@ -9,8 +16,11 @@ md-dialog {
     #toolbar {
         padding: 0 5px 0 5px;
         h3 {
-            margin: 5px 0 5px 0;
+            margin: 5px 0px 5px 10px;
         }
+        background-image: url('../image/tollbar.jpg');
+        background-size: 100% 100%;
+        @include box-shadow(rgba(black, 0.9) 0 0 6px);
     }
 }
 
@@ -21,12 +31,15 @@ md-dialog {
         @include justify-content(center);
     }
     md-tabs-wrapper {
-        background-color: #2C80D2;
+        background-color: rgba(white, 0 );
     }
     md-ink-bar {
         height: 3px;
+        background: #B3520B none repeat scroll 0% 0%;
     }
+    @include linear-gradient(300deg,#000,#47100F);
 }
+
 
 #dialog-content {
     @include display-flex;
