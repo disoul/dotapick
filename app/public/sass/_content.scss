@@ -7,10 +7,12 @@ md-content #heros .text {
 
 .enemy-text {
 	color: $enemy-red;
+    font-weight: bold;
 }
 
 .firendly-text {
 	color: $firendly-green;
+    font-weight: bold;
 }
 
 .hero-info {

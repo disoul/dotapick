@@ -30,10 +30,12 @@ md-content #heros .text {
 
 .enemy-text {
   color: #ff6666;
+  font-weight: bold;
 }
 
 .firendly-text {
   color: #259656;
+  font-weight: bold;
 }
 
 .hero-info {
