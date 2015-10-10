@@ -17,35 +17,32 @@ class SuggestedHero(object):
         db = redis.StrictRedis(db=1)
 
         try:
-            return float(db.get(select+key))
+            return float(db.get('dphw_'+select+'_'+key))
         except(TypeError):
             key = hero2 + '_' + hero1
             if isAnti:
-                return float(db.get(select+key))
+                return float(db.get('dphw_'+select+'_'+key) or 0)
             else:
-                return 0 - float(db.get(select+key))
-        return 0
+                return 0 - float(db.get('dphw_'+select+'_'+key) or 0)
 
 
     def SortHeros(self):
-        sortedheros = sorted(self.suggestHeros, key=lambda key:key[0], reverse=True)
-        return [ hero[1] for hero in sortedheros ]
+        sortedheros = sorted(self.suggestHeros.iteritems(), key=lambda key:key[1], reverse=True)
+        return [hero[0] for hero in sortedheros]
 
-    def GetSuggestedHeros(self, options):
+    def GetSuggestedHeros(self):
         db = redis.StrictRedis(db=1)
-        heronames = db.keys('dpw')
+        heronames = db.keys('dpw*')
 
         for heroname in heronames:
             herowinrate = 0
             for enemy in self.enemys:
-                if enemy == '':
-                    return
-                herowinrate = herowinrate + self.GetWinrate(heroname, enemy, True)
+                if enemy != '':
+                    herowinrate = herowinrate + self.GetWinrate(heroname[4:], enemy, True)
 
             for teammate in self.teammates:
-                if teammate == '':
-                    return
-                herowinrate = herowinrate + self.GetWinrate(heroname, teammate, False)
-            self.suggestHeros[heroname] = herowinrate
+                if teammate != '':
+                    herowinrate = herowinrate + self.GetWinrate(heroname[4:], teammate, False)
+            self.suggestHeros[heroname[4:]] = herowinrate
 
         return self.SortHeros()

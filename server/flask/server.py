@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-from .suggest import SuggestedHero
+from suggest import SuggestedHero
 
 app = Flask('dotapick')
 
