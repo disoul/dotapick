@@ -1,5 +1,5 @@
-app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero',
-    function($scope, $mdDialog, $Hero){
+app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero', '$http'
+    function($scope, $mdDialog, $Hero, $http){
         $scope.enemys = range(5, 1).map(function(num){
             return {
                 id: num,
@@ -40,9 +40,16 @@ app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero',
                 }else {
                     $scope.teammates[id - 6].imgSrc = answer[0];
                     $scope.teammates[id - 6].name = answer[1];
-                }                
-				$scope.suggestheros = $Hero.suggest($scope.getArray($scope.enemys), $scope.getArray($scope.teammates), $scope.options);
-                $scope.$emit('SuggestCall',$scope.suggestheros);
+                }
+
+                $http.post('/suggest', {
+                    'enemy': $scope.getArray($scope.enemys),
+                    'teammate': $scope.getArray($scope.teammates),
+                    'select': $Hero.getSelect($scope.options)
+                }).success(function(data, status, header, config) {
+                    $scope.suggestheros = data;
+                    $scope.$emit('SuggestCall',$scope.suggestheros);
+                }) 
             }, function(){
                 strScroll.destroy();
                 strScroll = null;
