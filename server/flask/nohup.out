@@ -1,0 +1,15 @@
+[2015-10-11 15:14:05 +0000] [22237] [INFO] Starting gunicorn 19.3.0
+[2015-10-11 15:14:05 +0000] [22237] [INFO] Listening at: http://127.0.0.1:8000 (22237)
+[2015-10-11 15:14:05 +0000] [22237] [INFO] Using worker: sync
+[2015-10-11 15:14:05 +0000] [22242] [INFO] Booting worker with pid: 22242
+[2015-10-11 15:14:05 +0000] [22245] [INFO] Booting worker with pid: 22245
+[2015-10-11 15:14:05 +0000] [22246] [INFO] Booting worker with pid: 22246
+[2015-10-11 15:14:05 +0000] [22249] [INFO] Booting worker with pid: 22249
+[2015-10-11 15:31:35 +0000] [22242] [INFO] Parent changed, shutting down: <Worker 22242>
+[2015-10-11 15:31:35 +0000] [22242] [INFO] Worker exiting (pid: 22242)
+[2015-10-11 15:31:35 +0000] [22246] [INFO] Parent changed, shutting down: <Worker 22246>
+[2015-10-11 15:31:35 +0000] [22246] [INFO] Worker exiting (pid: 22246)
+[2015-10-11 15:31:35 +0000] [22249] [INFO] Parent changed, shutting down: <Worker 22249>
+[2015-10-11 15:31:35 +0000] [22249] [INFO] Worker exiting (pid: 22249)
+[2015-10-11 15:31:42 +0000] [22245] [INFO] Parent changed, shutting down: <Worker 22245>
+[2015-10-11 15:31:42 +0000] [22245] [INFO] Worker exiting (pid: 22245)

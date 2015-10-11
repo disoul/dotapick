@@ -1,4 +1,4 @@
-app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero', '$http'
+app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero', '$http',
     function($scope, $mdDialog, $Hero, $http){
         $scope.enemys = range(5, 1).map(function(num){
             return {
@@ -43,9 +43,9 @@ app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero', '$http'
                 }
 
                 $http.post('/suggest', {
-                    'enemy': $scope.getArray($scope.enemys),
-                    'teammate': $scope.getArray($scope.teammates),
-                    'select': $Hero.getSelect($scope.options)
+                    enemy: $scope.getArray($scope.enemys),
+                    teammate: $scope.getArray($scope.teammates),
+                    select: $Hero.getSelect($scope.options)
                 }).success(function(data, status, header, config) {
                     $scope.suggestheros = data;
                     $scope.$emit('SuggestCall',$scope.suggestheros);

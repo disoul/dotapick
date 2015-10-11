@@ -21,9 +21,10 @@ app.service('$Hero', function(){
         select = options.map(function(option){
             return option.userStates.substr(0,1).toLowerCase();
         }).join("");
+	return select;
 
     };
-}
+});
 
 app.controller('SelectHeroController', ['$scope', '$Hero',
     function($scope, $Hero) {
