@@ -10,7 +10,7 @@ class HeroWinrateSpider(scrapy.Spider):
         'skill': ['all', 'n', 'h', 'vh'],
         'time': ['month', 'v685'],
         'server': ['all', 'cn']
-    } 
+    }
 
     def __init__(self):
     #get urls from redis
