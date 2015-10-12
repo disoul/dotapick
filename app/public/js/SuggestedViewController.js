@@ -9,8 +9,8 @@ app.controller('SuggestedViewController', ['$scope', '$Hero',
         });
         $scope.update = function(suggest) {
             for (var i = 0;i < 20;i++) {
-                $scope.herolist[i].name = suggest[i].name;
-                $scope.herolist[i].imgSrc = $Hero.getImgUrl(suggest[i].name);
+                $scope.herolist[i].name = suggest[i];
+                $scope.herolist[i].imgSrc = $Hero.getImgUrl(suggest[i]);
             }
         };
         $scope.$on('ChangeSuggestCall', function(ev, suggest){

@@ -47,7 +47,7 @@ app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero', '$http',
                     teammate: $scope.getArray($scope.teammates),
                     select: $Hero.getSelect($scope.options)
                 }).success(function(data, status, header, config) {
-                    $scope.suggestheros = data;
+                    $scope.suggestheros = data['hero'];
                     $scope.$emit('SuggestCall',$scope.suggestheros);
                 }) 
             }, function(){
@@ -63,8 +63,14 @@ app.controller('HeroViewController', ['$scope', '$mdDialog', '$Hero', '$http',
 
         $scope.$on('SelectChange',function(){
             console.log('333');
-			$scope.suggestheros = $Hero.suggest($scope.getArray($scope.enemys), $scope.getArray($scope.teammates), $scope.options);
-            $scope.$emit('SuggestCall',$scope.suggestheros); 
+            $http.post('/suggest', {
+                enemy: $scope.getArray($scope.enemys),
+                teammate: $scope.getArray($scope.teammates),
+                select: $Hero.getSelect($scope.options)
+            }).success(function(data, status, header, config) {
+                $scope.suggestheros = data['hero'];
+                $scope.$emit('SuggestCall', $scope.suggestheros);
+            }); 
         });
 
         function DialogController($scope, $mdDialog){

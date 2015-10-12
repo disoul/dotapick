@@ -1,6 +1,7 @@
 import json
 from flask import Flask
 from flask import request
+from flask import jsonify
 from suggest import SuggestedHero
 
 app = Flask('dotapick')
@@ -13,4 +14,4 @@ def suggest():
         suggestheros = SuggestedHero(data["enemy"],
                                      data["teammate"],
                                      data["select"])
-        return suggestheros.GetSuggestedHeros()
+        return jsonify({'hero': suggestheros.GetSuggestedHeros()})
