@@ -29,6 +29,8 @@ var/
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
+.ropeproject/
+
 
 # Installer logs
 pip-log.txt
@@ -103,3 +105,6 @@ bower_components/
 
 # Nohup
 *.out
+
+# celery
+celerybeat-schedule

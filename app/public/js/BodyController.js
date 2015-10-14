@@ -26,5 +26,9 @@ app.controller('BodyController', ['$scope', '$mdSidenav',
             name: 'Skill',                                                     
             states: ['All', 'Normal', 'High', 'VeryHigh'],                            
             userStates: 'All'                                                     
+        },{
+            name: 'Mode',
+            states: ['Both', 'Anti', 'Cooperation'],
+            userStates: 'Both'
         }];
 	}]);
