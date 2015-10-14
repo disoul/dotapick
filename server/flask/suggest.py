@@ -40,13 +40,13 @@ class SuggestedHero(object):
             if self.select[-1] != 'c':
                 for enemy in self.enemys:
                     if enemy != '':
-                        herowinrate = herowinrate
-                        + self.GetWinrate(heroname[4:], enemy, True)
+                        herowinrate = herowinrate + self.GetWinrate(
+                            heroname[4:], enemy, True)
             if self.select[-1] != 'a':
                 for teammate in self.teammates:
                     if teammate != '':
-                        herowinrate = herowinrate
-                        + self.GetWinrate(heroname[4:], teammate, False)
+                        herowinrate = herowinrate + self.GetWinrate(
+                            heroname[4:], teammate, False)
 
             self.suggestHeros[heroname[4:]] = herowinrate
 
