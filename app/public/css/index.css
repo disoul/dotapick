@@ -120,6 +120,8 @@ md-content #heros .text {
 md-dialog {
   height: 90%;
   width: 90%;
+  z-index: 100001;
+  margin-top: 15px;
 }
 md-dialog #close-icon {
   display: inline-block;
@@ -134,6 +136,11 @@ md-dialog #toolbar {
 }
 md-dialog #toolbar h3 {
   margin: 5px 0px 5px 10px;
+}
+@media (min-width: 960px) {
+  md-dialog {
+    width: 45%;
+  }
 }
 
 #dialog-heros {
