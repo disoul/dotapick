@@ -3,16 +3,16 @@ app.controller('BodyController', ['$scope', '$mdSidenav',
 		$scope.openList = function(){ 
 			if (!$mdSidenav('left').isOpen())
 				$mdSidenav('left').open();
-		}
+		};
 		$scope.closeList = function(){
 			if ($mdSidenav('left').isOpen()) {
 				$mdSidenav('left').close();
             }
-		}
+		};
 
         $scope.updateSuggestHeros = function(){
             $scope.$broadcast('SelectChange');
-        }
+        };
         
         $scope.options = [{                                                    
             name: 'Time',                                                      
