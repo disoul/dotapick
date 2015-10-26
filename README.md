@@ -2,7 +2,8 @@
 
 ## 简介
 通过分析根据双方阵容克制关系，推荐出最合适的一些英雄，这是一款webapp    
-适用可以访问暂时地址[dotapick](http://dota.disoul.me)
+适用可以访问地址[dotapick](http://dota.disoul.me)
+支持移动端
 
 ## 使用效果
 ![预览1](http://7xn38i.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202015-09-27%2022.54.30.png)    
