@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     del = require('del'),
-	path = require('path');
+    path = require('path');
 
 gulp.task('compass',function(){
 	gulp.src('./app/public/sass/index.scss')
