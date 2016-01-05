@@ -6,7 +6,7 @@ class WinrateSpider(scrapy.Spider):
     name = 'winrate'
     allowed_domains = ['dotamax.com']
     start_urls = [
-        'http://dotamax.com/hero/rate/?time=v684&server=cn&skill=n'        
+        'http://dotamax.com/hero/rate/?time=v686&server=cn&skill=n'
     ]
     herodict = {}
 
